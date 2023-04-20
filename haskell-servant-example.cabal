@@ -6,12 +6,19 @@ author:          Joe
 maintainer:      joe@example.com
 build-type:      Simple
 
-common warnings
-    ghc-options: -Wall
+common language
+    ghc-options: -Wall -Wcompat -Wno-unticked-promoted-constructors
+
+    default-language: Haskell2010
+
+    default-extensions: DataKinds
+                        DeriveGeneric
+                        LambdaCase
+                        OverloadedStrings
+                        TypeOperators
 
 common commons
-    import:           warnings
-    default-language: Haskell2010
+    import:           language
     build-depends:
        base,
        servant,
